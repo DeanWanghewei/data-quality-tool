@@ -24,7 +24,6 @@ class RecordAnalysis(_tableSchema: TableSchema) {
       return None
     }
     patternArray.foreach(item => {
-
       val valueOption = record.getValue(item.name)
       valueOption match {
         case Some(null) => errorColBuffer += new ErrorCol(item, null, item.name)
