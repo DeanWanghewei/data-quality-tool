@@ -1,7 +1,7 @@
 package wei.bigdata
 
 import org.apache.commons.cli.{DefaultParser, Options}
-import wei.bigdata.work.DataQuality
+import wei.bigdata.work.DataWorkQuality
 
 
 /**
@@ -15,8 +15,8 @@ class Application
 object Application extends App {
   val options = new Options
   options.addOption("job", true, "Job config json file")
-
   private val parser = new DefaultParser
+
   val cl = parser.parse(options, args)
-  DataQuality.entry(cl.getOptionValue("job"))
+  new DataWorkQuality entry cl.getOptionValue("job")
 }

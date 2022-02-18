@@ -1,4 +1,4 @@
-package wei.bigdata.conf
+package wei.bigdata.core.record
 
 import org.apache.commons.lang3.StringUtils
 

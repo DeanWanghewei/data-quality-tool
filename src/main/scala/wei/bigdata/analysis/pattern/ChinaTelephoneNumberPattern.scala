@@ -1,4 +1,4 @@
-package wei.bigdata.analysis.`type`
+package wei.bigdata.analysis.pattern
 
 /**
  * @description: some desc
@@ -13,7 +13,7 @@ class ChinaTelephoneNumberPattern extends Patterns {
    * @param value
    * @return
    */
-  override def detection(value: String): Boolean = {
+  override def detection(value: AnyRef): Boolean = {
     true
   }
 }
