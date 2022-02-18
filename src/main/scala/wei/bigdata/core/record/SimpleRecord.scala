@@ -1,4 +1,4 @@
-package wei.bigdata.conf
+package wei.bigdata.core.record
 
 import scala.beans.BeanProperty
 import scala.collection.mutable
@@ -9,15 +9,15 @@ import scala.collection.mutable
  * @email: wanghewei@kemai.cn
  * @date: 2022-1-26 10:41
  */
-class Record {
+class SimpleRecord extends Record {
   @BeanProperty
   var cols: mutable.Buffer[Col] = new mutable.ArrayBuffer[Col]
 
-  def set(key: String, value: AnyRef): Unit = {
+  override def set(key: String, value: AnyRef): Unit = {
     cols += new Col(key, value)
   }
 
-  def getValue(key: String): Option[AnyRef] = {
+  override def getValue(key: String): Option[AnyRef] = {
     val collect = cols.filter(_.name.equals(key))
     if (collect.size < 0) {
       return None

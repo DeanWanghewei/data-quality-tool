@@ -1,10 +1,10 @@
 {
   "core": {
-    "threadNum": 2
+    "parallelism": 2
   },
   "source": {
     "name": "mysql",
-    "properties": {
+    "parameter": {
       "username": "root",
       "password": "Km@666888",
       "url": "jdbc:mysql://192.168.239.235:3306/gaia_ops_platform?useUnicode=true&characterEncoding=utf8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai"
@@ -13,7 +13,7 @@
   "sink": {
     "name": "console"
   },
-  "tableSchema": [
+  "colPatterns": [
     {
       "name": "",
       "pattern": "",

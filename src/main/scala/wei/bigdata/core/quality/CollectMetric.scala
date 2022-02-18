@@ -1,4 +1,6 @@
-package wei.bigdata.conf
+package wei.bigdata.core.quality
+
+import wei.bigdata.conf.MetricItem
 
 import scala.beans.BeanProperty
 

@@ -9,5 +9,11 @@ package wei.bigdata.core
 class ConstantCore
 
 object ConstantCore {
+  val CORE_PARALLELISM = "parallelism"
+  val SOURCE = "source"
+  val NAME = "name"
+  val PARAMETER = "parameter"
+  val COL_PATTERNS = "colPatterns"
+
 
 }

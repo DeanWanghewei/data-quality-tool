@@ -1,4 +1,4 @@
-package wei.bigdata.conf
+package wei.bigdata.core.quality
 
 import scala.beans.BeanProperty
 import scala.collection.mutable
@@ -9,7 +9,7 @@ import scala.collection.mutable
  * @email: wanghewei@kemai.cn
  * @date: 2022-1-26 10:38
  */
-class ErrorRecord {
+class RecordError {
   @BeanProperty
-  var colArray: mutable.ArrayBuffer[ErrorCol] = new mutable.ArrayBuffer[ErrorCol]
+  var colArray: mutable.ArrayBuffer[ColError] = new mutable.ArrayBuffer[ColError]
 }

@@ -1,8 +1,8 @@
 package wei.bigdata.analysis
 
-import org.apache.commons.lang3.StringUtils
-import wei.bigdata.analysis.RecordAnalysis._
-import wei.bigdata.conf.{ErrorCol, ErrorRecord, Record, TableSchema}
+import wei.bigdata.conf.TableSchema
+import wei.bigdata.core.quality.{ColError, RecordError}
+import wei.bigdata.core.record.Record
 
 import java.util.regex.Pattern
 import scala.collection.mutable
@@ -16,36 +16,22 @@ import scala.collection.mutable
 class RecordAnalysis(_tableSchema: TableSchema) {
   private val tableSchema: TableSchema = _tableSchema
 
-  def qualityRecord(record: Record): Option[ErrorRecord] = {
+  def qualityRecord(record: Record): Option[RecordError] = {
     val patternArray = tableSchema.colPatternArray
-    val errorColBuffer: mutable.ArrayBuffer[ErrorCol] = new mutable.ArrayBuffer[ErrorCol]
+    val errorColBuffer: mutable.ArrayBuffer[ColError] = new mutable.ArrayBuffer[ColError]
 
     if (patternArray == null) {
       return None
     }
     patternArray.foreach(item => {
       val valueOption = record.getValue(item.name)
-      valueOption match {
-        case Some(null) => errorColBuffer += new ErrorCol(item, null, item.name)
-        case Some(value) => {
-          if (StringUtils.isNotBlank(item.typePattern)) {
-            // typePattern
-          } else {
-            val pattern = getPattern(item.pattern)
-            val find = pattern.matcher(value.toString).find()
-            if (!find) {
-              errorColBuffer += new ErrorCol(item, valueOption.get, item.name)
-            }
-          }
-        }
-        case None => if (!item.nullAble) errorColBuffer += new ErrorCol(item, null, item.name)
-      }
+
     })
 
     if (errorColBuffer.isEmpty) {
       None
     } else {
-      val errorRecord = new ErrorRecord
+      val errorRecord = new RecordError
       errorRecord.colArray = errorColBuffer
       Some(errorRecord)
     }

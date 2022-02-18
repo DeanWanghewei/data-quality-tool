@@ -1,19 +1,15 @@
 package wei.bigdata.queue
 
-import wei.bigdata.conf.Record
-
-import java.util.concurrent.LinkedBlockingQueue
+import wei.bigdata.core.record.Record
 
 /**
  * @description: some desc
  * @author: weiyixiao
  * @email: wanghewei@kemai.cn
- * @date: 2022-1-26 14:09
+ * @date: 2022-2-18 9:41
  */
-class RecordQueue {
+trait RecordQueue {
+  def put(record: Record): Unit
 
-}
-
-object RecordQueue {
-  val queue: LinkedBlockingQueue[Record] = new LinkedBlockingQueue[Record]()
+  def get(): Record
 }

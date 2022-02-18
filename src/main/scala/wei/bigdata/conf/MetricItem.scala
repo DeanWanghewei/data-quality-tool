@@ -9,6 +9,7 @@ import scala.beans.BeanProperty
  * @email: wanghewei@kemai.cn
  * @date: 2022-1-27 17:30
  */
+
 class MetricItem(_name: String, _cnt: LongAdder) {
   @BeanProperty
   val name: String = _name

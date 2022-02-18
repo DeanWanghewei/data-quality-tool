@@ -3,7 +3,6 @@ package wei.bigdata.util
 
 import org.apache.commons.io.FileUtils
 import org.apache.commons.lang3.StringUtils
-import wei.bigdata.conf.Configuration
 
 import java.io.File
 
@@ -28,11 +27,6 @@ object ConfigParser {
     if (StringUtils.isBlank(path)) {
       throw new RuntimeException("must config in start args:  -job <var>")
     }
-    FileUtils.readFileToString(new File(path))
-  }
-
-  def parseConfig(path: String): Configuration = {
-    val context = loadLocalPath(path)
-    new Configuration(context)
+    FileUtils.readFileToString(new File(path),"utf-8")
   }
 }

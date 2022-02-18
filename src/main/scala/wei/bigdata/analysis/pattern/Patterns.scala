@@ -1,4 +1,4 @@
-package wei.bigdata.analysis.`type`
+package wei.bigdata.analysis.pattern
 
 /**
  * @description: some desc
@@ -13,10 +13,10 @@ trait Patterns {
    * @param value
    * @return
    */
-  def detection(value: String): Boolean
+  def detection(value: AnyRef): Boolean
 
   /**
-   * give this pattern a own name
+   * give this pattern a own name,this name is A primary key
    *
    * @return this pattern name
    */

@@ -1,5 +1,7 @@
 package wei.bigdata.conf
 
+import wei.bigdata.core.pattern.ColPattern
+
 import scala.beans.BeanProperty
 
 /**
